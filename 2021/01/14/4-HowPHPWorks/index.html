@@ -7,10 +7,10 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://code-boxx.com/wp-content/uploads/2019/02/xampp-hello.jpg">
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/c/cb/Zend.01-internal-structure.png">
-<meta property="og:image" content="https://thephp.website/assets/images/posts/10-php-8-jit/zendvm-no-opcache.png">
+<meta property="og:image" content="http://example.com/2021/01/14/4-HowPHPWorks/img/zendvm-no-opcache.png">
 <meta property="og:image" content="https://thephp.website/assets/images/posts/10-php-8-jit/zendvm-opcache.png">
 <meta property="article:published_time" content="2021-01-14T01:01:07.920Z">
-<meta property="article:modified_time" content="2021-01-14T01:55:29.629Z">
+<meta property="article:modified_time" content="2021-01-14T02:13:48.957Z">
 <meta property="article:author" content="Cindy">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://code-boxx.com/wp-content/uploads/2019/02/xampp-hello.jpg"><title>How PHP files work? | Cindy's Blog</title><link ref="canonical" href="http://example.com/2021/01/14/4-HowPHPWorks/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.4.0"><script>var Stun = window.Stun || {};
@@ -58,7 +58,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.3.0"></he
       <p>PHP is a server-side scripting language similar to JavaScript which is a client-side scripting language. They are interpreted language, which means they need an interpreter or virtual machine to translate the language into different machine code depending on which system it is running on.  </p>
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Zend.01-internal-structure.png" alt="Zend Engine interal structure"><br>(Zend Engine interal structure)</p>
 <p>This makes the interpreted language less performance and freedom when compared with compiled languages which can be compiled beforehand. Similar to powerful JavaScript engine Chrome V8, PHP 8 Zend engine uses JIT compilation to compile part of the PHP code, so the Zend virtual machine does not need to interpreter this part of code anymore. The rest of the code still need to wait the virtual machine to specify the operating system before interpreting them. Here is the illustration about how PHP works with and without JIT.</p>
-<p>PHP works without JIT:<br><img src="https://thephp.website/assets/images/posts/10-php-8-jit/zendvm-no-opcache.png" alt="PHP works without JIT"></p>
+<p>PHP works without JIT:<br><img src="img/zendvm-no-opcache.png" alt="PHP works without JIT"></p>
 <p>PHP works with JIT:<br><img src="https://thephp.website/assets/images/posts/10-php-8-jit/zendvm-opcache.png" alt="PHP works with JIT"></p>
 
         <h4 id="References"   >
