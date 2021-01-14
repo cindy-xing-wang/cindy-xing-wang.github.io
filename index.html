@@ -36,13 +36,13 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.3.0"></he
         <h4 id="1-To-show-the-results-on-a-browser"   >
           <a href="#1-To-show-the-results-on-a-browser" class="heading-link"><i class="fas fa-link"></i></a>1). To show the results on a browser</h4>
       <p>This is a common way to run PHP code. That is why we need to set up a web server on our local machine and what I use is Xammp. The web server is Apache here. There are lots of other web servers we can use as well, like Nginx, IIS. However, it does not mean that web server can run the PHP code. When the web server encounter PHP files, it will call PHP runtime to run the code and return the output, for example HTML files, as part of response to the browser. The official PHP runtime is Zend Engine. There are other PHP runtimes, like Phalanger.</p>
-<p><img src="https://code-boxx.com/wp-content/uploads/2019/02/xampp-hello.jpg" alt="View PHP results from the browser"><br>(View running PHP file results from the browser)</p>
+<p><img src="https://code-boxx.com/wp-content/uploads/2019/02/xampp-hello.jpg" alt="View PHP results from the browser"><br><em>View running PHP file results from the browser</em></p>
 
         <h4 id="2-To-show-the-results-on-the-terminal"   >
           <a href="#2-To-show-the-results-on-the-terminal" class="heading-link"><i class="fas fa-link"></i></a>2). To show the results on the terminal</h4>
       <p>This is to explain that PHP code can be not associated with a web server. We still need to download PHP to run PHP code. A lazy way would be still using Xammp as it already has PHP inside, but do not start Apache web server. Then we can run PHP file using CLI.</p>
 <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># test.php</span><br><span class="line">&lt;?php</span><br><span class="line">echo &quot;Hello World&quot;;</span><br></pre></td></tr></table></div></figure>
-<figure class="highlight plain"><figcaption><span>Line'</span></figcaption><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">E:\&gt;php test.php</span><br><span class="line">Hello World!</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">E:\&gt;php test.php</span><br><span class="line">Hello World!</span><br></pre></td></tr></table></div></figure>
 
         <h3 id="PHP-8-has-JIT-compiler-now"   >
           <a href="#PHP-8-has-JIT-compiler-now" class="heading-link"><i class="fas fa-link"></i></a>PHP 8 has JIT compiler now</h3>
