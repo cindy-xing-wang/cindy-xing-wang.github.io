@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.4.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.4.0" type="image/png" sizes="32x32"><meta name="description" content="Replay My First Laravel Project—My Bug TrackerIt has been a year since the idea of creating a bug tracking application hitting my mind. I tried to design the UML diagram and draw wireframes. However,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Replay My First Laravel Project—My Bug Tracker">
+<meta property="og:url" content="http://example.com/2021/01/24/5-ReplayLaravelProject/index.html">
+<meta property="og:site_name" content="Cindy&#39;s Blog">
+<meta property="og:description" content="Replay My First Laravel Project—My Bug TrackerIt has been a year since the idea of creating a bug tracking application hitting my mind. I tried to design the UML diagram and draw wireframes. However,">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/BugAndPlan-1.png">
+<meta property="og:image" content="http://example.com/img/BugAndPlan-3.png">
+<meta property="og:image" content="http://example.com/img/MyBugTracker-10-modelsUser.png">
+<meta property="og:image" content="http://example.com/img/MyBugTracker-10-modelsUserMigration.png">
+<meta property="og:image" content="http://example.com/img/MyBugTracker-9-apiRegister.png">
+<meta property="og:image" content="http://example.com/img/MyBugTracker-11-controllerRegister.png">
+<meta property="og:image" content="http://example.com/img/MyBugTracker-12-viewRegister.png">
+<meta property="article:published_time" content="2021-01-24T07:29:53.871Z">
+<meta property="article:modified_time" content="2021-01-24T09:37:57.878Z">
+<meta property="article:author" content="Cindy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/BugAndPlan-1.png"><title>Replay My First Laravel Project—My Bug Tracker | Cindy's Blog</title><link ref="canonical" href="http://example.com/2021/01/24/5-ReplayLaravelProject/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.4.0"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":true},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Cindy's Blog</div><div class="header-banner-info__subtitle"></div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">Replay My First Laravel Project—My Bug Tracker</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2021-01-24</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-01-24</span></span></div></header><div class="post-body"><p>Replay My First Laravel Project—My Bug Tracker<br>It has been a year since the idea of creating a bug tracking application hitting my mind. I tried to design the UML diagram and draw wireframes. However, I had no idea how to start the code until I learned Laravel recently. It is unbelievable that I could finish the first version of My Bug Tracker within a week. Now I want to walk through the path again and try to consolidate the knowledge that is going to help me for the next project.</p>
+
+        <h3 id="Get-some-ideas-from-open-source-projects-on-GitHub"   >
+          <a href="#Get-some-ideas-from-open-source-projects-on-GitHub" class="heading-link"><i class="fas fa-link"></i></a>Get some ideas from open-source projects on GitHub</h3>
+      <p>GitHub definitely gave me a big help this time as I did not quite clear about what features and layout a bug tracker should have. I looked into some apps available online like JIRA, Mantis and so on. However, they are way too complicated for me. Recently, I learned how to use GitHub to find open-source project and I finally found a good Laravel bug tracker project to begin with.<br>Here is my way to find the project and ran it locally.</p>
+
+        <h4 id="Search"   >
+          <a href="#Search" class="heading-link"><i class="fas fa-link"></i></a>Search</h4>
+      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># GitHub search</span></span><br><span class="line"><span class="keyword">in</span>:description bug tracker laravel pushed:&gt;2020-01-01</span><br><span class="line"><span class="keyword">in</span>:description bugtracker laravel pushed:&gt;2020-01-01</span><br></pre></td></tr></table></div></figure>
+<p>The results are different with tiny difference between key words. I read the README documents and ran a few of the projects. Finally, I decided to use <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/AitorGarciaM/BugAndPlan" >BugAndPlan</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> as my reference.</p>
+
+        <h3 id="Git-clone-the-project-to-local-machine"   >
+          <a href="#Git-clone-the-project-to-local-machine" class="heading-link"><i class="fas fa-link"></i></a>Git clone the project to local machine</h3>
+      
+        <h3 id="Run-Laravel-project-locally"   >
+          <a href="#Run-Laravel-project-locally" class="heading-link"><i class="fas fa-link"></i></a>Run Laravel project locally</h3>
+      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Go to the folder BugAndPlan</span></span><br><span class="line"><span class="built_in">cd</span> BugAndPlan</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer update</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">config env file</span><br><span class="line">cp .env.example .env</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">php artisan key:generate</span><br><span class="line">php artisan migrate</span><br></pre></td></tr></table></div></figure>
+<p>Done!</p>
+<p><img src="/img/BugAndPlan-1.png" alt="BugAndPlay-1"><br><em>BugAndPlay layout</em></p>
+
+        <h3 id="Define-the-features-and-design-the-UI"   >
+          <a href="#Define-the-features-and-design-the-UI" class="heading-link"><i class="fas fa-link"></i></a>Define the features and design the UI</h3>
+      
+        <h4 id="Features"   >
+          <a href="#Features" class="heading-link"><i class="fas fa-link"></i></a>Features</h4>
+      <ul>
+<li>Authentication</li>
+<li>Authorization</li>
+<li>Adding projects and bugs</li>
+<li>View and edit projects and bug details</li>
+<li>Changing user profile</li>
+<li>Admin role should be able to assign bugs to developer role and able to delete projects and bugs</li>
+</ul>
+
+        <h4 id="Get-header-and-nav-bar-ready"   >
+          <a href="#Get-header-and-nav-bar-ready" class="heading-link"><i class="fas fa-link"></i></a>Get header and nav bar ready</h4>
+      <p><img src="/img/BugAndPlan-3.png" alt="My Bug Tracker"><br><em>My Bug Tacker Navbar layout</em></p>
+
+        <h3 id="Design-the-feature-development-process"   >
+          <a href="#Design-the-feature-development-process" class="heading-link"><i class="fas fa-link"></i></a>Design the feature development process</h3>
+      
+        <h4 id="Models"   >
+          <a href="#Models" class="heading-link"><i class="fas fa-link"></i></a>Models</h4>
+      <p>Build the Models and migrations<br><img src="/img/MyBugTracker-10-modelsUser.png" alt="My Bug Tracker"><br><em>User Model</em></p>
+<p><img src="/img/MyBugTracker-10-modelsUserMigration.png" alt="My Bug Tracker"><br><em>User migration</em></p>
+
+        <h4 id="Controllers"   >
+          <a href="#Controllers" class="heading-link"><i class="fas fa-link"></i></a>Controllers</h4>
+      
+        <h5 id="Design-route-API"   >
+          <a href="#Design-route-API" class="heading-link"><i class="fas fa-link"></i></a>Design route API</h5>
+      <p><img src="/img/MyBugTracker-9-apiRegister.png" alt="My Bug Tracker"><br><em>Registration route</em></p>
+<p><img src="/img/MyBugTracker-11-controllerRegister.png" alt="My Bug Tracker"><br><em>Registration controller</em></p>
+
+        <h4 id="Views"   >
+          <a href="#Views" class="heading-link"><i class="fas fa-link"></i></a>Views</h4>
+      <p>Create forms and display tables</p>
+<p><img src="/img/MyBugTracker-12-viewRegister.png" alt="My Bug Tracker"><br><em>Registration view</em></p>
+
+        <h3 id="Heads-up"   >
+          <a href="#Heads-up" class="heading-link"><i class="fas fa-link"></i></a>Heads-up</h3>
+      <ul>
+<li>Protecting routes</li>
+<li>Injection attacks</li>
+<li>Code-review to comply SOLID principles</li>
+</ul>
+
+        <h3 id="Repeat-the-process-for-next-feature"   >
+          <a href="#Repeat-the-process-for-next-feature" class="heading-link"><i class="fas fa-link"></i></a>Repeat the process for next feature</h3>
+      
+        <h3 id="What-is-next"   >
+          <a href="#What-is-next" class="heading-link"><i class="fas fa-link"></i></a>What is next</h3>
+      <ul>
+<li>I am going to use this app in the future to manage my projects.</li>
+<li>Add more features (Display issues by priority. Pop-up dialogue confirming deleting, more details for projects and bugs e.g.: supporting uploading files, images, email to other people. Adding ‘My Task’ page. Able to assign bugs to multiple developers. Able to create and delete users. Remember me and Forget password).</li>
+<li>Improve UI and UX</li>
+<li>Build the project again if necessary.</li>
+<li>Deploy the project.</li>
+<li>Build the project in C#.</li>
+</ul>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="http://example.com">Cindy</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="http://example.com/2021/01/24/5-ReplayLaravelProject/">http://example.com/2021/01/24/5-ReplayLaravelProject/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2021/01/14/4-HowPHPWorks/"><span class="paginator-prev__text">How PHP files work?</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Get-some-ideas-from-open-source-projects-on-GitHub"><span class="toc-number">1.</span> <span class="toc-text">
+          Get some ideas from open-source projects on GitHub</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Search"><span class="toc-number">1.1.</span> <span class="toc-text">
+          Search</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-clone-the-project-to-local-machine"><span class="toc-number">2.</span> <span class="toc-text">
+          Git clone the project to local machine</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-Laravel-project-locally"><span class="toc-number">3.</span> <span class="toc-text">
+          Run Laravel project locally</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Define-the-features-and-design-the-UI"><span class="toc-number">4.</span> <span class="toc-text">
+          Define the features and design the UI</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Features"><span class="toc-number">4.1.</span> <span class="toc-text">
+          Features</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Get-header-and-nav-bar-ready"><span class="toc-number">4.2.</span> <span class="toc-text">
+          Get header and nav bar ready</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Design-the-feature-development-process"><span class="toc-number">5.</span> <span class="toc-text">
+          Design the feature development process</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Models"><span class="toc-number">5.1.</span> <span class="toc-text">
+          Models</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Controllers"><span class="toc-number">5.2.</span> <span class="toc-text">
+          Controllers</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Design-route-API"><span class="toc-number">5.2.1.</span> <span class="toc-text">
+          Design route API</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Views"><span class="toc-number">5.3.</span> <span class="toc-text">
+          Views</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Heads-up"><span class="toc-number">6.</span> <span class="toc-text">
+          Heads-up</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Repeat-the-process-for-next-feature"><span class="toc-number">7.</span> <span class="toc-text">
+          Repeat the process for next feature</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-next"><span class="toc-number">8.</span> <span class="toc-text">
+          What is next</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">hello world</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">5</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2021</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Cindy</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span><span> v5.3.0</span><span class="footer__devider">|</span><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.4.0</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.4.0"></script><script src="/js/stun-boot.js?v=2.4.0"></script><script src="/js/scroll.js?v=2.4.0"></script><script src="/js/header.js?v=2.4.0"></script><script src="/js/sidebar.js?v=2.4.0"></script></body></html>

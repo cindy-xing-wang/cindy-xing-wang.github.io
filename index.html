@@ -28,7 +28,90 @@ var CONFIG = {
   sourcePath: {"js":"js","css":"css","images":"images"},
 };
 
-window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Cindy's Blog</div><div class="header-banner-info__subtitle"></div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content content-home" id="content"><section class="postlist"><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2021/01/14/4-HowPHPWorks/">How PHP files work?</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2021-01-14</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-01-14</span></span></div></header><div class="post-body"><div class="post-excerpt">
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Cindy's Blog</div><div class="header-banner-info__subtitle"></div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content content-home" id="content"><section class="postlist"><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2021/01/24/5-ReplayLaravelProject/">Replay My First Laravel Project—My Bug Tracker</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2021-01-24</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-01-24</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Replay My First Laravel Project—My Bug Tracker<br>It has been a year since the idea of creating a bug tracking application hitting my mind. I tried to design the UML diagram and draw wireframes. However, I had no idea how to start the code until I learned Laravel recently. It is unbelievable that I could finish the first version of My Bug Tracker within a week. Now I want to walk through the path again and try to consolidate the knowledge that is going to help me for the next project.</p>
+
+        <h3 id="Get-some-ideas-from-open-source-projects-on-GitHub"   >
+          <a href="#Get-some-ideas-from-open-source-projects-on-GitHub" class="heading-link"><i class="fas fa-link"></i></a>Get some ideas from open-source projects on GitHub</h3>
+      <p>GitHub definitely gave me a big help this time as I did not quite clear about what features and layout a bug tracker should have. I looked into some apps available online like JIRA, Mantis and so on. However, they are way too complicated for me. Recently, I learned how to use GitHub to find open-source project and I finally found a good Laravel bug tracker project to begin with.<br>Here is my way to find the project and ran it locally.</p>
+
+        <h4 id="Search"   >
+          <a href="#Search" class="heading-link"><i class="fas fa-link"></i></a>Search</h4>
+      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># GitHub search</span></span><br><span class="line"><span class="keyword">in</span>:description bug tracker laravel pushed:&gt;2020-01-01</span><br><span class="line"><span class="keyword">in</span>:description bugtracker laravel pushed:&gt;2020-01-01</span><br></pre></td></tr></table></div></figure>
+<p>The results are different with tiny difference between key words. I read the README documents and ran a few of the projects. Finally, I decided to use <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/AitorGarciaM/BugAndPlan" >BugAndPlan</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> as my reference.</p>
+
+        <h3 id="Git-clone-the-project-to-local-machine"   >
+          <a href="#Git-clone-the-project-to-local-machine" class="heading-link"><i class="fas fa-link"></i></a>Git clone the project to local machine</h3>
+      
+        <h3 id="Run-Laravel-project-locally"   >
+          <a href="#Run-Laravel-project-locally" class="heading-link"><i class="fas fa-link"></i></a>Run Laravel project locally</h3>
+      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Go to the folder BugAndPlan</span></span><br><span class="line"><span class="built_in">cd</span> BugAndPlan</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer update</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">config env file</span><br><span class="line">cp .env.example .env</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">php artisan key:generate</span><br><span class="line">php artisan migrate</span><br></pre></td></tr></table></div></figure>
+<p>Done!</p>
+<p><img src="/img/BugAndPlan-1.png" alt="BugAndPlay-1"><br><em>BugAndPlay layout</em></p>
+
+        <h3 id="Define-the-features-and-design-the-UI"   >
+          <a href="#Define-the-features-and-design-the-UI" class="heading-link"><i class="fas fa-link"></i></a>Define the features and design the UI</h3>
+      
+        <h4 id="Features"   >
+          <a href="#Features" class="heading-link"><i class="fas fa-link"></i></a>Features</h4>
+      <ul>
+<li>Authentication</li>
+<li>Authorization</li>
+<li>Adding projects and bugs</li>
+<li>View and edit projects and bug details</li>
+<li>Changing user profile</li>
+<li>Admin role should be able to assign bugs to developer role and able to delete projects and bugs</li>
+</ul>
+
+        <h4 id="Get-header-and-nav-bar-ready"   >
+          <a href="#Get-header-and-nav-bar-ready" class="heading-link"><i class="fas fa-link"></i></a>Get header and nav bar ready</h4>
+      <p><img src="/img/BugAndPlan-3.png" alt="My Bug Tracker"><br><em>My Bug Tacker Navbar layout</em></p>
+
+        <h3 id="Design-the-feature-development-process"   >
+          <a href="#Design-the-feature-development-process" class="heading-link"><i class="fas fa-link"></i></a>Design the feature development process</h3>
+      
+        <h4 id="Models"   >
+          <a href="#Models" class="heading-link"><i class="fas fa-link"></i></a>Models</h4>
+      <p>Build the Models and migrations<br><img src="/img/MyBugTracker-10-modelsUser.png" alt="My Bug Tracker"><br><em>User Model</em></p>
+<p><img src="/img/MyBugTracker-10-modelsUserMigration.png" alt="My Bug Tracker"><br><em>User migration</em></p>
+
+        <h4 id="Controllers"   >
+          <a href="#Controllers" class="heading-link"><i class="fas fa-link"></i></a>Controllers</h4>
+      
+        <h5 id="Design-route-API"   >
+          <a href="#Design-route-API" class="heading-link"><i class="fas fa-link"></i></a>Design route API</h5>
+      <p><img src="/img/MyBugTracker-9-apiRegister.png" alt="My Bug Tracker"><br><em>Registration route</em></p>
+<p><img src="/img/MyBugTracker-11-controllerRegister.png" alt="My Bug Tracker"><br><em>Registration controller</em></p>
+
+        <h4 id="Views"   >
+          <a href="#Views" class="heading-link"><i class="fas fa-link"></i></a>Views</h4>
+      <p>Create forms and display tables</p>
+<p><img src="/img/MyBugTracker-12-viewRegister.png" alt="My Bug Tracker"><br><em>Registration view</em></p>
+
+        <h3 id="Heads-up"   >
+          <a href="#Heads-up" class="heading-link"><i class="fas fa-link"></i></a>Heads-up</h3>
+      <ul>
+<li>Protecting routes</li>
+<li>Injection attacks</li>
+<li>Code-review to comply SOLID principles</li>
+</ul>
+
+        <h3 id="Repeat-the-process-for-next-feature"   >
+          <a href="#Repeat-the-process-for-next-feature" class="heading-link"><i class="fas fa-link"></i></a>Repeat the process for next feature</h3>
+      
+        <h3 id="What-is-next"   >
+          <a href="#What-is-next" class="heading-link"><i class="fas fa-link"></i></a>What is next</h3>
+      <ul>
+<li>I am going to use this app in the future to manage my projects.</li>
+<li>Add more features (Display issues by priority. Pop-up dialogue confirming deleting, more details for projects and bugs e.g.: supporting uploading files, images, email to other people. Adding ‘My Task’ page. Able to assign bugs to multiple developers. Able to create and delete users. Remember me and Forget password).</li>
+<li>Improve UI and UX</li>
+<li>Build the project again if necessary.</li>
+<li>Deploy the project.</li>
+<li>Build the project in C#.</li>
+</ul>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2021/01/14/4-HowPHPWorks/">How PHP files work?</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2021-01-14</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-01-14</span></span></div></header><div class="post-body"><div class="post-excerpt">
         <h3 id="PHP-PHP-runtimes-Web-server"   >
           <a href="#PHP-PHP-runtimes-Web-server" class="heading-link"><i class="fas fa-link"></i></a>PHP/ PHP runtimes /Web server</h3>
       <p>We can write PHP files in a text editor without downloading anything. The reason we usually download Xammp, or whatsoever is because we need to run PHP files to see the results. There are 2 ways to run PHP code:</p>
@@ -109,4 +192,4 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.3.0"></he
 <li>Try to build Hexo on macOS as some themes may not working on windows.</li>
 <li>I attempted to clone different themes. Some were not displaying the way I was expecting. During the process, I happened to know <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://gohugo.io/" >Hugo</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> which is another blog building framework written in Go language. I haven’t tried it yet. If you want to find an easier way to build a blog maybe this is the way to go.</li>
 </ol>
-</div></div></article></section><nav class="paginator"><div class="paginator-inner"><span class="page-number current">1</span></div></nav></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><section class="sidebar-toc hide"></section><!-- ov = overview--><section class="sidebar-ov"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">hello world</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">4</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2021</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Cindy</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span><span> v5.3.0</span><span class="footer__devider">|</span><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.4.0</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.4.0"></script><script src="/js/stun-boot.js?v=2.4.0"></script><script src="/js/scroll.js?v=2.4.0"></script><script src="/js/header.js?v=2.4.0"></script><script src="/js/sidebar.js?v=2.4.0"></script></body></html>
+</div></div></article></section><nav class="paginator"><div class="paginator-inner"><span class="page-number current">1</span></div></nav></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><section class="sidebar-toc hide"></section><!-- ov = overview--><section class="sidebar-ov"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">hello world</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">5</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2021</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Cindy</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span><span> v5.3.0</span><span class="footer__devider">|</span><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.4.0</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.4.0"></script><script src="/js/stun-boot.js?v=2.4.0"></script><script src="/js/scroll.js?v=2.4.0"></script><script src="/js/header.js?v=2.4.0"></script><script src="/js/sidebar.js?v=2.4.0"></script></body></html>
