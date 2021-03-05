@@ -1,0 +1,155 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.4.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.4.0" type="image/png" sizes="32x32"><meta name="description" content="0. Basic development workflow       Basic development workflow As laravel UI package has built-in authrization feature, the User model, AuthController and user migration file has b">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Laravel Project Demo--role management">
+<meta property="og:url" content="http://example.com/2021/03/05/9-LaravelProjectDemo/index.html">
+<meta property="og:site_name" content="Cindy&#39;s Blog">
+<meta property="og:description" content="0. Basic development workflow       Basic development workflow As laravel UI package has built-in authrization feature, the User model, AuthController and user migration file has b">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/9-0.designFlow.PNG">
+<meta property="og:image" content="http://example.com/img/9-2.connectDB.PNG">
+<meta property="og:image" content="http://example.com/img/9-1.1createNewProject.PNG">
+<meta property="og:image" content="http://example.com/img/9-1.3createNewProject.PNG">
+<meta property="og:image" content="http://example.com/img/9-1.4createNewProject.PNG">
+<meta property="og:image" content="http://example.com/img/9-3.1.UserModel.PNG">
+<meta property="og:image" content="http://example.com/img/9-3.2.usermigrationfile.PNG">
+<meta property="og:image" content="http://example.com/img/9-3.migrateUsersTable.PNG">
+<meta property="og:image" content="http://example.com/img/9-4.1.create&seedingDataIntoRole.PNG">
+<meta property="og:image" content="http://example.com/img/9-4.2.create&seedingDataIntoRole.PNG">
+<meta property="og:image" content="http://example.com/img/9-4.create&seedingDataIntoRole.PNG">
+<meta property="og:image" content="http://example.com/img/9-5.updateRegisterController.PNG">
+<meta property="og:image" content="http://example.com/img/9-6.registerUser.PNG">
+<meta property="og:image" content="http://example.com/img/9-7.1.redirectToDashboard.PNG">
+<meta property="og:image" content="http://example.com/img/9-7.redirectToDashboard.PNG">
+<meta property="og:image" content="http://example.com/img/9-8.1.addStaffRoute.PNG">
+<meta property="og:image" content="http://example.com/img/9-8.2.addStaffRoute.PNG">
+<meta property="og:image" content="http://example.com/img/9.3.createAdminMiddleware.PNG">
+<meta property="og:image" content="http://example.com/img/9.4.createAdminMiddleware.PNG">
+<meta property="og:image" content="http://example.com/img/9.2.createAdminMiddleware.PNG">
+<meta property="og:image" content="http://example.com/img/9.1.createAdminMiddleware.PNG">
+<meta property="og:image" content="http://example.com/img/9-10.subsection.PNG">
+<meta property="og:image" content="http://example.com/img/9-10.1.subsection.PNG">
+<meta property="article:published_time" content="2021-03-05T07:56:33.004Z">
+<meta property="article:modified_time" content="2021-03-05T09:10:14.829Z">
+<meta property="article:author" content="Cindy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/9-0.designFlow.PNG"><title>Laravel Project Demo--role management | Cindy's Blog</title><link ref="canonical" href="http://example.com/2021/03/05/9-LaravelProjectDemo/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.4.0"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":true},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Cindy's Blog</div><div class="header-banner-info__subtitle"></div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">Laravel Project Demo--role management</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2021-03-05</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-03-05</span></span></div></header><div class="post-body">
+        <h4 id="0-Basic-development-workflow"   >
+          <a href="#0-Basic-development-workflow" class="heading-link"><i class="fas fa-link"></i></a>0. Basic development workflow</h4>
+      <p><img src="/img/9-0.designFlow.PNG" alt="Create Project"><br><em>Basic development workflow</em></p>
+<p>As laravel UI package has built-in authrization feature, the User model, AuthController and user migration file has been created automatically. Adding new entities need to use PHP artisan to create Model, migration file, Controller. Below is the demo development in detail.</p>
+
+        <h4 id="1-Create-Laravel-project-skeleton"   >
+          <a href="#1-Create-Laravel-project-skeleton" class="heading-link"><i class="fas fa-link"></i></a>1. Create Laravel project skeleton</h4>
+      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">laravel new laravelDemo</span><br><span class="line">composer require laravel/ui</span><br><span class="line">php artisan ui bootstrap –auth</span><br></pre></td></tr></table></div></figure>
+
+        <h4 id="2-Connect-with-database-MySQL"   >
+          <a href="#2-Connect-with-database-MySQL" class="heading-link"><i class="fas fa-link"></i></a>2. Connect with database (MySQL)</h4>
+      <p><img src="/img/9-2.connectDB.PNG" alt="Create Project"><br><em>Connect with database</em></p>
+<p><img src="/img/9-1.1createNewProject.PNG" alt="Create Project"><br><em>Connect with database</em></p>
+<p><img src="/img/9-1.3createNewProject.PNG" alt="Create Project"><br><em>Laravel welcome page</em></p>
+<p><img src="/img/9-1.4createNewProject.PNG" alt="Create Project"><br><em>Laravel welcome page with login &amp; Register</em></p>
+
+        <h4 id="3-Add-attributes-in-User-Model-etc-role-id-and-update-migration-file"   >
+          <a href="#3-Add-attributes-in-User-Model-etc-role-id-and-update-migration-file" class="heading-link"><i class="fas fa-link"></i></a>3. Add attributes in User Model (etc. role_id) and update migration file</h4>
+      <p>User model and user migration file are created by Laravel. We only need to add the attributes.<br><img src="/img/9-3.1.UserModel.PNG" alt="Create Project"><br><em>User Model</em></p>
+<p><img src="/img/9-3.2.usermigrationfile.PNG" alt="Create Project"><br><em>user migration file</em></p>
+
+        <h4 id="4-Run-migration-to-create-Users-table-in-database"   >
+          <a href="#4-Run-migration-to-create-Users-table-in-database" class="heading-link"><i class="fas fa-link"></i></a>4.Run migration to create Users table in database</h4>
+      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan migrate</span><br></pre></td></tr></table></div></figure>
+<p><img src="/img/9-3.migrateUsersTable.PNG" alt="Create Project"><br><em>users table has been created through migration file</em></p>
+
+        <h4 id="5-Create-Role-model-amp-role-migration-file"   >
+          <a href="#5-Create-Role-model-amp-role-migration-file" class="heading-link"><i class="fas fa-link"></i></a>5. Create Role model &amp; role migration file</h4>
+      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">php artisan make:model</span><br><span class="line">php artisan make:migration create_roles _table</span><br></pre></td></tr></table></div></figure>
+<p><img src="/img/9-4.1.create&seedingDataIntoRole.PNG" alt="Create Project"><br><em>update role migration file</em></p>
+
+        <h4 id="6-Run-migration-to-create-Roles-table-in-database"   >
+          <a href="#6-Run-migration-to-create-Roles-table-in-database" class="heading-link"><i class="fas fa-link"></i></a>6. Run migration to create Roles table in database</h4>
+      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan migrate</span><br></pre></td></tr></table></div></figure>
+<p><strong>Note</strong> : run migration whenever the migration file is changed to make sure the database is up-to-date step by step</p>
+
+        <h4 id="7-Seeding-data-into-roles-table-ect-admin-and-staff-roles"   >
+          <a href="#7-Seeding-data-into-roles-table-ect-admin-and-staff-roles" class="heading-link"><i class="fas fa-link"></i></a>7. Seeding data into roles table (ect. admin and staff roles)</h4>
+      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan make:seeder Role</span><br></pre></td></tr></table></div></figure>
+<p><img src="/img/9-4.2.create&seedingDataIntoRole.PNG" alt="Create Project"><br><em>update role seeder file</em></p>
+<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan db:seed –class Role</span><br></pre></td></tr></table></div></figure>
+<p><img src="/img/9-4.create&seedingDataIntoRole.PNG" alt="Create Project"><br><em>update role seeder file</em></p>
+
+        <h4 id="8-Update-RegisterController"   >
+          <a href="#8-Update-RegisterController" class="heading-link"><i class="fas fa-link"></i></a>8. Update RegisterController</h4>
+      <p><img src="/img/9-5.updateRegisterController.PNG" alt="Create Project"><br><em>Update RegisterController</em></p>
+
+        <h4 id="9-Register-the-first-User"   >
+          <a href="#9-Register-the-first-User" class="heading-link"><i class="fas fa-link"></i></a>9. Register the first User</h4>
+      <p>Anyone register from register page will be ‘staff’ role.</p>
+<p><img src="/img/9-6.registerUser.PNG" alt="Create Project"><br><em>Register the first User</em></p>
+
+        <h4 id="10-Redirect-to-dashboard"   >
+          <a href="#10-Redirect-to-dashboard" class="heading-link"><i class="fas fa-link"></i></a>10. Redirect to dashboard</h4>
+      <p><img src="/img/9-7.1.redirectToDashboard.PNG" alt="Create Project"><br><em>Redirect to dashboard</em></p>
+<p><img src="/img/9-7.redirectToDashboard.PNG" alt="Create Project"><br><em>Add dashboard route in web.php</em></p>
+
+        <h4 id="11-Design-dashboard"   >
+          <a href="#11-Design-dashboard" class="heading-link"><i class="fas fa-link"></i></a>11. Design dashboard</h4>
+      <p>I use <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/ThemeKit/BootstrapAdmin" >ThemeKit</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> as the template for the UI</p>
+
+        <h4 id="12-Add-staff-route-Only-admin-role-is-able-to-visit-this-route"   >
+          <a href="#12-Add-staff-route-Only-admin-role-is-able-to-visit-this-route" class="heading-link"><i class="fas fa-link"></i></a>12. Add staff route (Only admin role is able to visit this route)</h4>
+      <p><img src="/img/9-8.1.addStaffRoute.PNG" alt="Create Project"><br><em>Add staff route</em></p>
+
+        <h4 id="13-Create-StaffController"   >
+          <a href="#13-Create-StaffController" class="heading-link"><i class="fas fa-link"></i></a>13. Create StaffController</h4>
+      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan make:controlle StaffController -r</span><br></pre></td></tr></table></div></figure>
+<p>By adding -r flag, the file will automatically creating index, create, show, update, destroy functions.</p>
+<p><img src="/img/9-8.2.addStaffRoute.PNG" alt="Create Project"><br><em>Create StaffController</em></p>
+
+        <h4 id="14-Create-middleware-to-protect-admin-route"   >
+          <a href="#14-Create-middleware-to-protect-admin-route" class="heading-link"><i class="fas fa-link"></i></a>14. Create middleware to protect admin route</h4>
+      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan make:middleware Admin</span><br></pre></td></tr></table></div></figure>
+<p><img src="/img/9.3.createAdminMiddleware.PNG" alt="Create Project"><br><em>Add admin to middleware</em><br><img src="/img/9.4.createAdminMiddleware.PNG" alt="Create Project"><br><em>Protect admin route</em><br><img src="/img/9.2.createAdminMiddleware.PNG" alt="Create Project"><br><em>Add admin to middleware</em><br><img src="/img/9.1.createAdminMiddleware.PNG" alt="Create Project"><br><em>Protect admin route</em></p>
+
+        <h4 id="15-Repeat-the-process-to-create-sub-sections"   >
+          <a href="#15-Repeat-the-process-to-create-sub-sections" class="heading-link"><i class="fas fa-link"></i></a>15. Repeat the process to create sub-sections</h4>
+      <p><img src="/img/9-10.subsection.PNG" alt="Create Project"><br><em>create sub-section route</em><br><img src="/img/9-10.1.subsection.PNG" alt="Create Project"><br><em>create sub-section route</em></p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="http://example.com">Cindy</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="http://example.com/2021/03/05/9-LaravelProjectDemo/">http://example.com/2021/03/05/9-LaravelProjectDemo/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2021/02/19/8-15minsC#/"><span class="paginator-prev__text">15mins to setup a basic C# project— Projects management web app</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#0-Basic-development-workflow"><span class="toc-number">1.</span> <span class="toc-text">
+          0. Basic development workflow</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Create-Laravel-project-skeleton"><span class="toc-number">2.</span> <span class="toc-text">
+          1. Create Laravel project skeleton</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Connect-with-database-MySQL"><span class="toc-number">3.</span> <span class="toc-text">
+          2. Connect with database (MySQL)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Add-attributes-in-User-Model-etc-role-id-and-update-migration-file"><span class="toc-number">4.</span> <span class="toc-text">
+          3. Add attributes in User Model (etc. role_id) and update migration file</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Run-migration-to-create-Users-table-in-database"><span class="toc-number">5.</span> <span class="toc-text">
+          4.Run migration to create Users table in database</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-Create-Role-model-amp-role-migration-file"><span class="toc-number">6.</span> <span class="toc-text">
+          5. Create Role model &amp; role migration file</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-Run-migration-to-create-Roles-table-in-database"><span class="toc-number">7.</span> <span class="toc-text">
+          6. Run migration to create Roles table in database</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-Seeding-data-into-roles-table-ect-admin-and-staff-roles"><span class="toc-number">8.</span> <span class="toc-text">
+          7. Seeding data into roles table (ect. admin and staff roles)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-Update-RegisterController"><span class="toc-number">9.</span> <span class="toc-text">
+          8. Update RegisterController</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-Register-the-first-User"><span class="toc-number">10.</span> <span class="toc-text">
+          9. Register the first User</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-Redirect-to-dashboard"><span class="toc-number">11.</span> <span class="toc-text">
+          10. Redirect to dashboard</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-Design-dashboard"><span class="toc-number">12.</span> <span class="toc-text">
+          11. Design dashboard</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-Add-staff-route-Only-admin-role-is-able-to-visit-this-route"><span class="toc-number">13.</span> <span class="toc-text">
+          12. Add staff route (Only admin role is able to visit this route)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13-Create-StaffController"><span class="toc-number">14.</span> <span class="toc-text">
+          13. Create StaffController</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#14-Create-middleware-to-protect-admin-route"><span class="toc-number">15.</span> <span class="toc-text">
+          14. Create middleware to protect admin route</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#15-Repeat-the-process-to-create-sub-sections"><span class="toc-number">16.</span> <span class="toc-text">
+          15. Repeat the process to create sub-sections</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">hello world</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">9</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2021</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Cindy</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span><span> v5.3.0</span><span class="footer__devider">|</span><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.4.0</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.4.0"></script><script src="/js/stun-boot.js?v=2.4.0"></script><script src="/js/scroll.js?v=2.4.0"></script><script src="/js/header.js?v=2.4.0"></script><script src="/js/sidebar.js?v=2.4.0"></script></body></html>
